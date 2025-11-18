@@ -1,0 +1,7 @@
+sources:
+  - name: dvd_rental
+    database: PROJECT_2_DVD_RENTAL
+    schema: raw
+    tables:
+      - name: actor
+      - name: category
