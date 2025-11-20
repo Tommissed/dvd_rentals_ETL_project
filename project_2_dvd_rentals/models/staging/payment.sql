@@ -17,5 +17,5 @@ select
 from {{source ('dvd_rental','payment')}}
 
 {% if is_incremental() %}
-    where last_update > (select max(last_update) from {{ this }} )
+    where payment_date > (select max(payment_date) from {{ this }} )
 {% endif %}
