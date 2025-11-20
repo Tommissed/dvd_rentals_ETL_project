@@ -15,10 +15,16 @@ We created a pipeline using the sample database DVD Rental. We used Airbyte to e
 
 ## Consumers
 
-# Datasets
+## Datasets
+The ER diagram of the DVD Rental database can be found [here](https://neon.com/postgresqltutorial/printable-postgresql-sample-database-diagram.pdf).
 
 ## Solution Architecture
 
-### ELT Process
+## ELT Process
+
+### Extract/Load
+We used Airbyte to extract data from a PostGreSQL database hosted in a docker image. We've set up the Airbyte connection to incrementally extract each table and load into 'raw' schema in a Snowflake database.
+
+### Transform
 
 # Business Process Modeling
