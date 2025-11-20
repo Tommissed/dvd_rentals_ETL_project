@@ -34,3 +34,6 @@ models:
     staging:
       +materialized: views
       +schema: staging
+    mart:
+      +materialized: views
+      +schema: mart
