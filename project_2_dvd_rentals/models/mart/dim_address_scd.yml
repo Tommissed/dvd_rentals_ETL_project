@@ -1,0 +1,14 @@
+version: 1
+
+models:
+  - name: dim_address_scd
+    columns:
+      - name: address_sk
+        description: The surrogate key of address_id and dbt_valid_from
+        tests:
+          - unique
+          - not_null
+      - name: address
+        description: street address
+        tests:
+          - not_null
