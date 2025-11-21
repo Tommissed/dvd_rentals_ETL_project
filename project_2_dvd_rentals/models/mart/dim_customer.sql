@@ -4,6 +4,7 @@
   )
 }}
 
+--dim table for rental info
 --customer -> address -> city -> country
 --bring into one dim table to maintain a star schema
 
