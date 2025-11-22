@@ -21,7 +21,8 @@ from {{ ref('film')}} as f
 left join {{ ref('film_actor')}} as fa
     on f.film_id=fa.film_id
 left join {{ ref('actor')}} as a
-    on fa.actor_id=a.actor_id)
+    on fa.actor_id=a.actor_id
+group by f.film_id)
 
 select
     f.film_id,
@@ -37,7 +38,6 @@ select
     f.rating,
     f.special_features,
     c.name as category
-
 from {{ ref('film')}} as f
 left join {{ ref('language')}} as l
     on f.language_id=l.language_id
@@ -46,4 +46,4 @@ left join {{ ref('film_category')}} as fc
 left join {{ ref('category')}} as c
     on fc.category_id=c.category_id
 left join actor_list as al
-    on f.film_id=al.film_id;
+    on f.film_id=al.film_id

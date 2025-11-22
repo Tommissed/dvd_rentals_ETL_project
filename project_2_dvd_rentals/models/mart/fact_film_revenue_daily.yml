@@ -1,0 +1,25 @@
+version: 1
+
+models:
+  - name: fact_film_revenue_daily
+    columns:
+      - name: film_id
+        description: natural key from film table
+        tests:
+          - not_null
+      - name: payment_date
+        description: date of payment
+        tests:
+          - not_null
+      - name: film_revenue
+        tests:
+          - not_null
+      - name: rental_count
+        tests:
+          - not_null
+
+tests:
+  - dbt_expectations.expect_compound_columns_to_be_unique:
+      column_list:
+        - film_id
+        - payment_date
