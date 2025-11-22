@@ -1,7 +1,6 @@
 {{
     config(
         materialized="incremental",
-        incremental_strategy="delete+insert",
         unique_key=["inventory_id"]
         )
 }}
@@ -14,6 +13,3 @@ select
     last_update
 from {{source ('dvd_rental','inventory')}}
 
-{% if is_incremental() %}
-    where last_update > (select max(last_update) from {{ this }} )
-{% endif %}

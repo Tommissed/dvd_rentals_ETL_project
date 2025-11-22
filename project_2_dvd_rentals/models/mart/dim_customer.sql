@@ -15,7 +15,7 @@ select
     c.first_name,
     c.last_name,
     c.email,
-    c.activebool,
+    c.active,
     a.address,
     a.district,
     a.postal_code,
