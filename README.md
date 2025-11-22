@@ -15,16 +15,22 @@ We created a pipeline using the sample database DVD Rental. We used Airbyte to e
 
 ## Consumers
 
-## Datasets
-The ER diagram of the DVD Rental database can be found [here](https://neon.com/postgresqltutorial/printable-postgresql-sample-database-diagram.pdf).
+## Dataset
+We are using the sample PostGresql DVD_Rentals database. The ER diagram can be found [here](https://neon.com/postgresqltutorial/printable-postgresql-sample-database-diagram.pdf).
 
 ## Solution Architecture
 
 ## ELT Process
 
 ### Extract/Load
-We used Airbyte to extract data from a PostGreSQL database hosted in a docker image. We've set up the Airbyte connection to incrementally extract each table and load into 'raw' schema in a Snowflake database.
+We used Airbyte to extract data from a PostGreSQL database hosted in a docker image. We've set up the Airbyte connection to incrementally extract each table and load into 'raw' schema in a Snowflake database. The raw schema serves as our Bronze layer.
+<br/><br/>
+![Airbyte Connection](https://github.com/Tommissed/dvd_rentals_ETL_project/blob/main/images/Airbyte%20Connection.png?raw=true)
+
 
 ### Transform
+We used dbt to build foundational staging models (Silver layer), where raw source tables are standardized through basic transformations such as data type casting.
+<br/><br/> 
+From there, we developed curated dimension and fact models (Gold layer) that serve as the primary analytical data sets for end users.
 
-# Business Process Modeling
+## Data Visualizations
