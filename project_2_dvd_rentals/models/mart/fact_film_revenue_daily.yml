@@ -7,6 +7,10 @@ models:
         description: natural key from film table
         tests:
           - not_null
+      - name: customer_id
+        description: natural key from film table
+        tests:
+          - not_null
       - name: payment_date
         description: date of payment
         tests:
@@ -23,3 +27,4 @@ tests:
       column_list:
         - film_id
         - payment_date
+        - customer_id
