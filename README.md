@@ -19,7 +19,7 @@ We created a pipeline using the sample database DVD Rental. We used Airbyte to e
 We are using the sample PostGresql DVD_Rentals database. The ER diagram can be found [here](https://neon.com/postgresqltutorial/printable-postgresql-sample-database-diagram.pdf).
 
 ## Solution Architecture
-
+![Solution Architecture](https://github.com/Tommissed/dvd_rentals_ETL_project/blob/main/images/Solution%20Architecture.png)
 ## ELT Process
 
 ### Extract/Load
