@@ -1,0 +1,58 @@
+version: 1
+
+models:
+  - name: rental_lifecycle
+    description: "Accumulating fact table that tracks each rental's lifecycle, including rental duration, late returns, and associated customer, film, and staff information."
+    columns:
+      - name: rental_id
+        description: "Unique identifier for each rental (primary key of this fact table)."
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: "Foreign key linking to the customer who rented the film."
+        tests:
+          - not_null
+
+      - name: staff_id
+        description: "Foreign key linking to the staff member who handled the rental."
+        tests:
+          - not_null
+
+      - name: store_id
+        description: "Foreign key linking to the store where the rental occurred."
+        tests:
+          - not_null
+
+      - name: film_id
+        description: "Foreign key linking to the film that was rented."
+        tests:
+          - not_null
+
+      - name: film_name
+        description: "The title of the film rented."
+
+      - name: rental_date
+        description: "The date the film was rented."
+        tests:
+          - not_null
+
+      - name: return_date
+        description: "The date the film was returned. Can be null if not yet returned."
+
+      - name: max_rental_duration
+        description: "The maximum allowed rental duration for the film."
+
+      - name: length_of_rental
+        description: "Number of days between rental_date and return_date."
+
+      - name: returned_late_bool
+        description: "Boolean flag indicating if the rental was returned late (true) or on time (false)."
+
+tests:
+  - dbt_expectations.expect_compound_columns_to_be_unique:
+      column_list:
+        - rental_id
+        - customer_id
+        - film_id
